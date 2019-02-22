@@ -1,0 +1,21 @@
+{
+  "name": "customerfeedback",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sky Lockwood",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "exceljs": "^1.7.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.9",
+    "node-mongoose-validator": "^1.2.0"
+  }
+}

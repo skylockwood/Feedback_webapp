@@ -1,0 +1,58 @@
+<head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Customer Feedback</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="/index.css" />
+</head>
+<body>
+    <div class="title">
+        <div class="title-img"></div>
+    </div>
+    <div id="nav">
+        <div ng-controller='sessionController'>
+        <h2>Control Board</h2>
+        <h3>Logged in as {{currentUser.user}}</h3>
+        <a href="#!/customer_feedback">Customer Feedback Form</a><br>
+        <a href="#!/lab_feedback">Lab Manager Feedback Form</a><br>
+        <a href="#!/feedback">What customers are saying</a><br>
+        <a href="#!/excalibur">View and update Excalibur IDs</a><br>
+    </div>
+    <a href="/logout">Logout</a>
+    <div ng-controller='labController'>
+        <div class="search-visits">
+            <input type="date" ng-model='date.start' placeholder="Start Date">
+            <input type="date" ng-model='date.end' placeholder="End Date">
+            <input type="submit" value="Search" ng-click=getVisits()>
+            <div id="update" style="visibility: hidden" ng-model='updatevisit'>
+                    <ul>
+                        <li ng-repeat="x in visits" style="list-style:none"><h4>{{x.customer}} visit on {{x.date | date:'MM/dd/yyyy'}} has the current 
+                            Excalibur ID: <strong>{{x.excalibur}}</strong>.</h4>
+                            <input type="submit" value="Update" ng-click=deleteVisit(x._id,currentUser.level)>  
+                        </li>
+                    </ul>                           
+                </div>
+
+
+            <h4 ng-repeat="x in visits">{{x}}</h4>
+        </div>
+        <input type="submit" value="Lab Excel" ng-click="createFromFile()">
+        <input type="submit" value="Purge Lab Visits" ng-click="purge()">
+        <div ng-controller='customerVisitsController'>
+            <input type="submit" value="Customer Excel" ng-click="createFromFile()">
+            <input type="submit" value="Purge Customer Visits" ng-click="purge()">
+        <div ng-controller='chartsController'>
+            <label>Select Year for chart data</label>
+            <select ng-model="year" ng-options="n for n in range"></select>
+            <input type="submit" value="Get Charts" ng-click=getCharts()>
+            <div id="chartsDiv" style="visibility: hidden">
+                <input type="checkbox" ng-model="monthly">Monthly Visits
+                <input type="checkbox" ng-model="visitations">Total Visits
+                <input type="checkbox" ng-model="verticals">Verticals
+                <input type="checkbox" ng-model="monthlyOther"> Monthly Others
+                <zingchart zc-json="monthlyVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthly"></zingchart>
+                <zingchart zc-json="monthlyOtherVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthlyOther"></zingchart>
+                <zingchart zc-json="visitsChart" zc-height=400 zc-width=500 ng-show="visitations"></zingchart>
+                <zingchart zc-json="verticalsChart" zc-height=500 zc-width=600 ng-show="verticals"></zingchart>
+            </div>  
+</body>

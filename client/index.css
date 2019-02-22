@@ -1,0 +1,237 @@
+*,::after,::before{
+  box-sizing: border-box;
+}
+
+body{
+ background-color: powderblue;
+ margin: 0;
+ text-align: left;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+.nav-topbar{
+  display: flex; 
+  -ms-flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  justify-content: space-between;
+  background-color:pink;
+  flex-wrap: nowrap;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  padding: 0;
+  z-index: 1030;
+  font-size: 1rem;
+}
+
+.navbar-brand{
+  color: black;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 1rem;
+  text-decoration: none;
+  position: relative;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+main{
+  margin-left: auto;
+  flex: 0 0 83.33%;
+  -ms-flex: 0 0 83.33%;
+  max-width: 83.33%;
+  position: relative;
+  width: 100%;
+  display: block;
+  padding-top: 48px;
+}
+
+.container-fluid{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.nav-sidebar{
+  flex: 0 0 16%;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  max-width: 16%;
+  display: block !important;
+  position: fixed;
+  background-color: white;
+  z-index: 100;
+  padding: 48px 0 0 0;
+  border: 1px solid black;
+}
+
+.search-visits{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#login{
+  margin-left: 40%;
+  width: 20%;
+  height: 20%;
+  margin-top: 5%;
+  background-color: white;
+  
+}
+
+#login-form{
+  max-height: inherit;
+  max-width: inherit;
+  padding-top: 10%;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}
+.log-input{
+  display: inline-block;
+  margin-bottom: 10%;
+  margin-left: 10%;
+  width: 80%;
+}
+
+#submit{
+  background-color: green;
+  width: 70%;
+  margin-left: 15%;
+  margin-bottom: 10px; 
+  height: 40px; 
+  color: white;
+}
+
+#form-outer{
+    margin-top: 60px;
+    margin-left: 20%;
+    height: 200px;
+    width: 60%;
+}
+
+#form-title{
+    height: 100px;
+    margin-bottom: -10px;
+    background-color: darkcyan;
+}
+
+#form-body{
+    background-color: white;
+    margin-bottom: 60px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px
+}
+h1{
+    text-align: center;
+    color: white;
+    padding-top: 30px;
+}
+
+h3{
+    text-align: center;
+}
+.single-line{
+    width: 100%;
+}
+
+.multi-line{
+  width: 100%;
+  overflow-y: scroll;
+  word-wrap: break-word;
+}
+
+form .stars {
+    background: url("stars.png") repeat-x 0 0;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
+  form .stars input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  form .stars input[type="radio"].star-5:checked ~ span {
+    width: 100%;
+  }
+  form .stars input[type="radio"].star-4:checked ~ span {
+    width: 80%;
+  }
+  form .stars input[type="radio"].star-3:checked ~ span {
+    width: 60%;
+  }
+  form .stars input[type="radio"].star-2:checked ~ span {
+    width: 40%;
+  }
+  form .stars input[type="radio"].star-1:checked ~ span {
+    width: 20%;
+  }
+  form .stars label {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0!important;
+    padding: 0!important;
+    text-indent: -999em;
+    float: left;
+    position: relative;
+    z-index: 10;
+    background: transparent!important;
+    cursor: pointer;
+  }
+  form .stars label:hover ~ span {
+    background-position: 0 -30px;
+  }
+  form .stars label.star-5:hover ~ span {
+    width: 100% !important;
+  }
+  form .stars label.star-4:hover ~ span {
+    width: 80% !important;
+  }
+  form .stars label.star-3:hover ~ span {
+    width: 60% !important;
+  }
+  form .stars label.star-2:hover ~ span {
+    width: 40% !important;
+  }
+  form .stars label.star-1:hover ~ span {
+    width: 20% !important;
+  }
+  form .stars span {
+    display: block;
+    width: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 30px;
+    background: url("stars.png") repeat-x 0 -60px;
+    -webkit-transition: -webkit-width 0.5s;
+    -moz-transition: -moz-width 0.5s;
+    -ms-transition: -ms-width 0.5s;
+    -o-transition: -o-width 0.5s;
+    transition: width 0.5s;
+  }

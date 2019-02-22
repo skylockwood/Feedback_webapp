@@ -1,0 +1,36 @@
+<body>
+    <div ng-controller='sessionController'>
+        <nav class="nav-topbar" >
+            <a class="navbar-brand" href="#">Lab Visits</a>
+            <a class="navbar-brand">Logged in as {{currentUser.user}}</a>
+            <a href="/logout">Logout</a>
+        </nav>
+        <div class="container-fluid" >
+            <nav class="nav-sidebar">
+                <a href="#!/customer_feedback">Customer Feedback Form</a><br>
+                <a href="#!/lab_feedback">Lab Manager Feedback Form</a><br>
+                <hr>
+                <a href="#!/dashboard">Dashboard</a><br>
+                <a href="#!/feedback">What customers are saying</a><br>
+                
+            </nav>
+            <main class="main-view">
+                <div class="search-visits" ng-controller='labController'>
+                    <label>Select month and year for Excalibur data</label><br>
+                    <label>Month</label><select ng-model="date.month" ng-options="n.name for n in date.months"></select>
+                    <label>Year</label><select ng-model="date.year" ng-options="n for n in date.years"></select>
+                    <input type="submit" value="Get Visits" ng-click=getVisits() required>
+                    <div id="update" style="visibility: hidden" ng-model='updatevisit'>
+                        <h4>{{count}} Excalibur IDs were created this month</h4>
+                        <ul>
+                            <li ng-repeat="x in visits" style="list-style:none"><h4>{{x.customer}} visit on {{x.date | date:'MM/dd/yyyy'}} has the current 
+                                Excalibur ID: <strong>{{x.excalibur}}</strong>.</h4>
+                                <h4>Assign new Excalibur ID: <input type="text" ng-model="newexcalibur"></h4>
+                                <input type="submit" value="Update" ng-click=updateVisit(x._id,newexcalibur,currentUser.level)>  
+                            </li>
+                        </ul>                           
+                    </div>
+                </div>
+            </main>
+        </div>
+</body>
