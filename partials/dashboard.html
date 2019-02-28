@@ -1,0 +1,40 @@
+<head>
+        
+</head>
+<body>
+    <div ng-controller='sessionController'>
+    <nav class="nav-topbar" >
+        <a class="navbar-brand" href="#">Lab Visits</a>
+        <a class="navbar-brand">Logged in as {{currentUser.user}}</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <div class="container-fluid" >
+        <nav class="nav-sidebar">
+            <a href="#!/customer_feedback">Customer Feedback Form</a><br>
+            <a href="#!/lab_feedback">Lab Manager Feedback Form</a><br>
+            <hr>
+            <a href="#!/feedback">What customers are saying</a><br>
+            <a href="#!/excalibur">View and update Excalibur IDs</a><br>
+        </nav>
+        <main class="main-view">
+            <div ng-controller='chartsController'>
+                    <label>Select Year for chart data</label>
+                    <select ng-model="year" ng-options="n for n in range"></select>
+                    <input type="submit" value="Get Charts" ng-click=getCharts()>
+                    <div id="chartsDiv" style="visibility: hidden">
+                        <input type="checkbox" ng-model="monthly">Monthly Visits
+                        <input type="checkbox" ng-model="visitations">Total Visits
+                        <input type="checkbox" ng-model="verticals">Verticals
+                        <input type="checkbox" ng-model="monthlyOther"> Monthly Others
+                        <input type="checkbox" ng-model="customer">Customer Usecases
+                        <zingchart zc-json="monthlyVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthly"></zingchart>
+                        <zingchart zc-json="monthlyOtherVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthlyOther"></zingchart>
+                        <zingchart id="visitsChart" zc-json="visitsChart" zc-height=400 zc-width=500 ng-show="visitations"></zingchart>
+                        <zingchart zc-json="verticalsChart" zc-height=500 zc-width=600 ng-show="verticals"></zingchart>
+                        <zingchart zc-json="customerUsecases" zc-height=500 zc-width=1000 ng-show="customer"></zingchart>
+                    </div> 
+            </div>
+        </main>
+    
+    </div> 
+</body>
