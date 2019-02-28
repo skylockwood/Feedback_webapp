@@ -17,6 +17,23 @@
         <a href="#!/lab_feedback">Lab Manager Feedback Form</a><br>
         <a href="#!/feedback">What customers are saying</a><br>
         <a href="#!/excalibur">View and update Excalibur IDs</a><br>
+        <div>
+            <label>Create new user</label><br>
+            <input type="text" ng-model="newUser.name" placeholder="Name"><br>
+            <input type="password" ng-model="newUser.password" placeholder="Password"><br>
+            <select ng-model="newUser.level" ng-options="n for n in [1,8,9]"></select>
+            <input type="submit" value="Create" ng-click="createUser()">
+        </div>
+        <div>
+            <label>View all users</label><br>
+            <input type="submit" value="See all" ng-click="index()"><br>
+            <div id="index" style="visibility:hidden">
+                <li ng-repeat="x in users" style="list-style:none">
+                    {{x.user}} has access level {{x.level}}
+                    <input type="submit" value="Delete" ng-click="delete(x._id)">
+                </li>
+            </div>
+        </div>
     </div>
     <a href="/logout">Logout</a>
     <div ng-controller='labController'>

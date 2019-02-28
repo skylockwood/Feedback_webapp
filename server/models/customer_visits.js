@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var validator = require('node-mongoose-validator');
 var CustomerVisitSchema = new mongoose.Schema({
     name: {type:String, required:true},
     company:{type:String, required:true},

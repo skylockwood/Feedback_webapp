@@ -13,7 +13,6 @@ app.controller('labController', function($scope,$location,labFactory){
 
     $scope.getVisits = function(){
         document.getElementById('update').style.visibility = 'visible'
-        console.log($scope.date)
         var date = new Date()
         date.setFullYear($scope.date.year,$scope.date.month.value,1);
         date.setHours(0,0,0,0);
@@ -22,7 +21,6 @@ app.controller('labController', function($scope,$location,labFactory){
         labFactory.getVisits({start:date,end:end}, function(data){
             $scope.visits = data.visits;
             $scope.count = data.count;
-            console.log($scope.count)
         })
     }
     $scope.create = function(user){
@@ -35,8 +33,6 @@ app.controller('labController', function($scope,$location,labFactory){
     }
     $scope.updateVisit = function(visit,excalibur,level){
         if(level>1){
-            console.log(visit)
-            console.log(excalibur)
             labFactory.updateVisit({_id:visit,excalibur:excalibur},function(data){
                 document.getElementById('update').style.visibility = 'hidden'
                 $scope.visits = [];

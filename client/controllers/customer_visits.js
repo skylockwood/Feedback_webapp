@@ -19,14 +19,12 @@ app.controller('customerVisitsController', function($scope,$location,customerVis
         })
     }
     $scope.getFeedback = function(){
-        console.log($scope.date)
         var date = new Date()
         date.setFullYear($scope.date.year,$scope.date.month.value,1);
         date.setHours(0,0,0,0);
         var end = new Date(date.getTime());
         end.setMonth($scope.date.month.value+1)
         document.getElementById('feedback').style.visibility = 'visible'
-        console.log(date,'\n',end)
         customerVisitsFactory.getFeedback({start:date,end:end},function(data){
             $scope.fb = data
             var total=0

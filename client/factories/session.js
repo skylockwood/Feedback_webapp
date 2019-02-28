@@ -14,6 +14,20 @@ app.factory('sessionFactory', function($http, $location){
             }
         })
     },
+    factory.create = function(user){
+        $http.post('/create',user).then(function(output){
+            if(output.data.status){
+                alert(output.data.message)
+            }else{
+                alert(output.data.error)
+            }
+        })
+    },
+    factory.index = function(callback){
+        $http.get('/user_index').then(function(output){
+            output.data.status ? callback(output.data.users) : alert(output.data.error)
+        })
+    }
     factory.update = function(user){
         $http.post('/update',user).then(function(output){
             if(output.data.status){
@@ -21,6 +35,11 @@ app.factory('sessionFactory', function($http, $location){
             }else{
                 alert("Failed to update user:",output.data.error)
             }
+        })
+    }
+    factory.delete = function(id){
+        $http.delete('delete_user',{params:id}).then(function(output){
+            output.data.status ? alert("Successful deletion") : alert("Delete failed")
         })
     }
     factory.getSession = function(callback){

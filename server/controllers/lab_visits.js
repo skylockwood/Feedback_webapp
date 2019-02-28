@@ -105,8 +105,6 @@ module.exports = (function(){
             });
         },
         update: function(req,res){
-            console.log(req.body._id)
-            console.log(req.body.excalibur)
             Visit.findById(req.body._id,function(err,data){
                 if(err){
                     res.json({status:false,error:err})

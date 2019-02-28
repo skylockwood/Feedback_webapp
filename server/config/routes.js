@@ -9,8 +9,17 @@ module.exports = function(app){
     app.get('/logout',function(req,res){
         session.logout(req,res);
     })
+    app.get('/user_index',function(req,res){
+        session.index(req,res);
+    })
+    app.post('/create',function(req,res){
+        session.create(req,res)
+    })
     app.post('/update',function(req,res){
         session.update(req,res)
+    })
+    app.delete('/delete_user',function(req,res){
+        session.delete(req,res)
     })
     app.get('/getSession',function(req,res){
         session.getSession(req,res);
