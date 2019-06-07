@@ -8,7 +8,7 @@ var CustomerVisitSchema = new mongoose.Schema({
     usecase:{type:[], required:true},
     enhancement:{type:String, required:true},
     recommendations:{type:String, required:true},
-    star:{type:Number,min:1,max:5,required:true},
+    star:{type:Number,min:0,max:5,required:true},
     location:{type:String, required:true},
     date:{type:Date}
 },{timestamps:true})

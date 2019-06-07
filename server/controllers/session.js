@@ -3,6 +3,9 @@ var bcrypt = require('bcryptjs')
 User = mongoose.model('User');
 module.exports = (function(){
     return{
+        //These functions query the database and do all the necessary business logic based on the
+        // client side request.
+
         index: function(req,res){
             User.find({},function(err,data){
                 if(err)res.json({status:false,error:err})

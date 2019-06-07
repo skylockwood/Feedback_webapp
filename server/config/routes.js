@@ -2,6 +2,8 @@ var session = require('./../controllers/session.js')
 var customer_visits = require('./../controllers/customer_visits.js')
 var lab_visits = require('./../controllers/lab_visits.js')
 var charts = require('./../controllers/charts.js')
+
+//Client side factory data gets sent here and routed to the correct server side functionality
 module.exports = function(app){
     app.post('/login',function(req,res){
         session.login(req,res);
@@ -65,6 +67,12 @@ module.exports = function(app){
     })
     app.get('/charts/get',function(req,res){
         charts.getLabCharts(req,res);
+    })
+    app.post('/charts/report',function(req,res){
+        charts.generateReport(req,res);
+    }),
+    app.post('/charts/fetch',function(req,res){
+        charts.fetchReport(req,res);
     })
 
 
