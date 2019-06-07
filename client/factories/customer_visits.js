@@ -1,3 +1,5 @@
+//All functions here take data from the client side controller and prep to be sent to 
+// the server for processing
 app.factory('customerVisitsFactory', function($http, $location){
     var factory ={}
 
@@ -13,7 +15,7 @@ app.factory('customerVisitsFactory', function($http, $location){
     factory.getFeedback = function(search, callback){
         $http.get('/visits/get_feedback',{params:search}).then(function(output){
             if(output.data.status==true){
-                callback(output.data.visits)
+                callback(output.data)
             }else{
                 alert("Query failed: "+output.data.error)
             }
@@ -36,13 +38,13 @@ app.factory('customerVisitsFactory', function($http, $location){
                 alert("Successfully submitted. Thank you!")
                 $location.url('/dashboard');
             }else{
-                alert("Error with submission")
+                alert("Error with submission:",output.data.error)
             }
         })
     }
 
     factory.createVisitsFromFile = function(file){
-        $http.post('/visits/addFile', file).then(function(output){
+        $http.post('/visits/addFile', {path:file}).then(function(output){
             if(output.data.status == true){
                 alert("File read and task completed")
             }else{

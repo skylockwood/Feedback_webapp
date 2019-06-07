@@ -1,3 +1,5 @@
+//All functions here take data from the client side controller and prep to be sent to 
+// the server for processing
 app.factory('labFactory',function($http,$location){
     var factory = {}
 
@@ -21,11 +23,11 @@ app.factory('labFactory',function($http,$location){
         })
     }
     factory.createVisitsFromFile = function(file){
-        $http.post('/lab/addFile', file).then(function(output){
+        $http.post('/lab/addFile', {path:file}).then(function(output){
             if(output.data.status == true){
                 alert("File read and task completed")
             }else{
-                alert("Task failed",output.data.data)
+                alert("Task failed",output.data)
             }
         })
     }
@@ -39,7 +41,7 @@ app.factory('labFactory',function($http,$location){
         })
     }
     factory.deleteVisit = function(id, callback){
-        $http.delete('/lab/delete').then(function(output){
+        $http.delete('/lab/delete',{params:{_id:id}}).then(function(output){
             output.data.status==true ? callback(output.data.message) : alert("Error deleting lab visit")
         })
     }

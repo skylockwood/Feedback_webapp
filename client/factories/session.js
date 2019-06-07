@@ -1,3 +1,5 @@
+//All functions here take data from the client side controller and prep to be sent to 
+// the server for processing
 app.factory('sessionFactory', function($http, $location){
     var factory = {};
 

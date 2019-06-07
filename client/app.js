@@ -1,3 +1,4 @@
+//This is the main Angular app. It handles the processing of all the routes.
 var app = angular.module('feedbackApp',['ngRoute','zingchart-angularjs']);
 
 app.config(function($routeProvider){

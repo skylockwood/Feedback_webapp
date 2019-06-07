@@ -17,15 +17,15 @@
         <div id="form-body" ng-controller="customerVisitsController">
                 <form>
                     <h4>1.Name</h4>
-                    <input class="single-line" type="text" ng-model="visit.name" required>
+                    <input class="single-line" type="text" ng-model="visit.name">
                     <h4>2. Company</h4>
-                    <input class="single-line" type="text" ng-model="visit.company" required>
+                    <input class="single-line" type="text" ng-model="visit.company">
                     <h4>3. Designation / Role in your organization</h4>
-                    <input class="single-line" type="text" ng-model="visit.designation" required>
+                    <input class="single-line" type="text" ng-model="visit.designation">
                     <h4>4. Email Address</h4>
-                    <input class="single-line" type="email" ng-model="visit.email" required>
+                    <input class="single-line" type="email" ng-model="visit.email">
                     <h4>5. What was the objective of the visit to the lab?</h4>
-                    <select ng-model="visit.objective" required>
+                    <select ng-model="visit.objective">
                         <option value=""></option>
                         <option value="Get an understanding of the HCL's IoT offering">Get an understanding of the HCL's IoT offering</option>
                         <option value="Looking for IoT to solve specific business needs">Looking for IoT to solve specific business needs</option>
@@ -49,11 +49,11 @@
                     <input type="checkbox" ng-model="visit.usecase.value15" ng-true-value="'IoT Edge (Gateway, Instrumentation)'">IoT Edge (Gateway, Instrumentation)<br>
                     <input type="checkbox" ng-model="visit.usecase.value16" ng-true-value="'IoT Data Platform (Pangea, PAS)'">IoT Data Platform (Pangea, PAS)<br>
                     <h4>7. Please explain what would have enhanced the experience of this visit</h4>
-                    <input class="single-line" type="text" ng-model="visit.enhancement" required>
+                    <input class="single-line" type="text" ng-model="visit.enhancement">
                     <h4>8. Please recommend names from your Organization whom you think shall visit IoT WoRKS Lab</h4>
-                    <input class="single-line" type="text" ng-model="visit.recommendations" required>
+                    <input class="single-line" type="text" ng-model="visit.recommendations">
                     <h4>9. Please rate the overall experience</h4>
-                    <div class="stars" required>
+                    <div class="stars">
                         <input type="radio" ng-model="visit.star" class="star-1" id="star-1" value="1" />
                         <label class="star-1" for="star-1">1</label>
                         <input type="radio" ng-model="visit.star" class="star-2" id="star-2" value="2" />

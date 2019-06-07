@@ -15,26 +15,27 @@
             <div id="form-body" ng-controller="labController">
                     <form>
                         <h4>1.Customer's name</h4>
-                        <input class="single-line" type="text" ng-model="visit.customer" required>
+                        <input class="single-line" type="text" ng-model="visit.customer">
                         <h4>2. Date of the customer visit</h4>
-                        <input class="single-line" type="date" ng-model="visit.date" required>
+                        <input class="single-line" type="date" ng-model="visit.date">
                         <h4>3. Who arranged the visit(name of BD/Sales/Pre-Sales/Other)?</h4>
-                        <input class="single-line" type="text" ng-model="visit.arranged" required>
+                        <input class="single-line" type="text" ng-model="visit.arranged">
                         <h4>4. Where was the visit conducted?</h4>
-                        <input type="radio" ng-model="visit.where" ng-value="'lab'" ng-checked="visit.where==lab"> In Lab
-                        <input type="radio" ng-model="visit.where" ng-value="'outbound'">Outbound
+			            <input type="radio" name="where" value="lab" ng-model="visit.where"> In Lab
+                        <input type="radio" name="where" value="outbound" ng-model="visit.where">Outbound
                         <h4>5. Which vertical does it belong to?</h4>
                         <input type="checkbox" ng-model="visit.vertical.value1" ng-true-value="'Manufacturing'">Manufacturing<br>
                         <input type="checkbox" ng-model="visit.vertical.value2" ng-true-value="'Energy and Utilities'">Energy and Utilities<br>
                         <input type="checkbox" ng-model="visit.vertical.value3" ng-true-value="'Life Sciences and Healthcare'">Life Sciences and Healthcare<br>
                         <input type="checkbox" ng-model="visit.vertical.value4" ng-true-value="'Travel and Transport Logistics'">Travel and Transport Logistics<br>
-                        <input type="checkbox" ng-model="visit.vertical.value5" ng-true-value="'Telecom'">Telecom<br>
-                        <input type="checkbox" ng-model="visit.vertical.value6" ng-true-value="'Retail'">Retail<br>
+                        <input type="checkbox" ng-model="visit.vertical.value5" ng-true-value="'RCPG'">RCPG<br>
+                        <input type="checkbox" ng-model="visit.vertical.value6" ng-true-value="'Telecom'">Telecom<br>
                         <input type="checkbox" ng-model="visit.vertical.value7" ng-true-value="'Partners'">Partners<br>
                         <input type="checkbox" ng-model="visit.vertical.value8" ng-true-value="'Internal'">Internal<br>
+                        <input type="checkbox" ng-model="visit.vertical.value10" ng-true-value="'Analyst'">Analyst<br>
                         <input type="checkbox" ng-model="visit.vertical.value9" ng-true-value="'Other'">Other<br>
                         <h4>6. Who conducted the visit?</h4>
-                        <input class="single-line" type="text" ng-model="visit.who" required>
+                        <input class="single-line" type="text" ng-model="visit.who">
                         <h4>7. Which solutions were shared?</h4>
                         <input type="checkbox" ng-model="visit.usecase.value1" ng-true-value="'LSH- Smart Clinical Trials (Remote Patient Monitoring - RPM)'">LSH- Smart Clinical Trials (Remote Patient Monitoring - RPM)<br>
                         <input type="checkbox" ng-model="visit.usecase.value2" ng-true-value="'LSH- Disease Management (RPM)'">LSH- Disease Management (RPM)<br>
@@ -53,11 +54,11 @@
                         <input type="checkbox" ng-model="visit.usecase.value15" ng-true-value="'IoT Edge (Gateway, Instrumentation)'">IoT Edge (Gateway, Instrumentation)<br>
                         <input type="checkbox" ng-model="visit.usecase.value16" ng-true-value="'IoT Data Platform (Pangea, PAS)'">IoT Data Platform (Pangea, PAS)<br>
                         <h4>8. Which area interested the customer most?</h4>
-                        <textarea class="multi-line" ng-model="visit.interest" cols="5" required></textarea>
+                        <textarea class="multi-line" ng-model="visit.interest" cols="5"></textarea>
                         <h4>9. What are the next steps?</h4>
-                        <textarea class="multi-line" ng-model="visit.next" cols="5" required></textarea>
+                        <textarea class="multi-line" ng-model="visit.next" cols="5"></textarea>
                         <h4>10. What is the Excalibur ID?</h4>
-                        <input class="single-line" type="text" ng-model="visit.excalibur" required>
+                        <input class="single-line" type="text" ng-model="visit.excalibur">
                         <h4>11. Associate with customer feedback</h4>
                         <form>
                             <div ng-controller="customerVisitsController">

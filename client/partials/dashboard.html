@@ -19,19 +19,34 @@
         <main class="main-view">
             <div ng-controller='chartsController'>
                     <label>Select Year for chart data</label>
-                    <select ng-model="year" ng-options="n for n in range"></select>
+                    <select ng-model="year" ng-options="'FY '+n for n in range"></select>
                     <input type="submit" value="Get Charts" ng-click=getCharts()>
+                    <button ng-click=genReport()>Get Report</button>
                     <div id="chartsDiv" style="visibility: hidden">
-                        <input type="checkbox" ng-model="monthly">Monthly Visits
-                        <input type="checkbox" ng-model="visitations">Total Visits
+                        <input type="checkbox" ng-model="compareTotal">Monthly Total Comparison
+                        <input type="checkbox" ng-model="monthly">Main Verticals Visits
+                        <input type="checkbox" ng-model="monthlyOther">Other Verticals Visits
+                        <input type="checkbox" ng-model="visitations">Main Visit Locations
+                        <input type="checkbox" ng-model="visitationsOther">Other Visit Locations
                         <input type="checkbox" ng-model="verticals">Verticals
-                        <input type="checkbox" ng-model="monthlyOther"> Monthly Others
                         <input type="checkbox" ng-model="customer">Customer Usecases
-                        <zingchart zc-json="monthlyVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthly"></zingchart>
-                        <zingchart zc-json="monthlyOtherVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthlyOther"></zingchart>
-                        <zingchart id="visitsChart" zc-json="visitsChart" zc-height=400 zc-width=500 ng-show="visitations"></zingchart>
-                        <zingchart zc-json="verticalsChart" zc-height=500 zc-width=600 ng-show="verticals"></zingchart>
-                        <zingchart zc-json="customerUsecases" zc-height=500 zc-width=1000 ng-show="customer"></zingchart>
+                        <div id="chartsActual">
+                            <zingchart zc-json="verticalsChart" zc-height=500 zc-width=600 ng-show="verticals"></zingchart>
+                            <zingchart zc-json="customerUsecases" zc-height=500 zc-width=1000 ng-show="customer"></zingchart>
+                        </div>
+                        <div id="reportActual">
+                            <zingchart zc-json="monthlyCompareTotal" zc-height=500 zc-width=1000 ng-show="compareTotal"></zingchart>
+                            <br>
+                            <zingchart zc-json="monthlyVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthly"></zingchart>
+                            <br>
+                            <zingchart id="visitsChart" zc-json="visitsChart" zc-height=400 zc-width=500 ng-show="visitations"></zingchart>
+                            <br>
+                            <zingchart zc-json="monthlyOtherVerticalsChart" zc-height=500 zc-width=1000 ng-show="monthlyOther"></zingchart>
+                            <br>
+                            <zingchart id="visitsOthersChart" zc-json="visitsOtherChart" zc-height=400 zc-width=500 ng-show="visitationsOther"></zingchart>
+                            <br>
+                            <div id="ratings"></div>
+                        </div>
                     </div> 
             </div>
         </main>

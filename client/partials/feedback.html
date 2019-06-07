@@ -22,12 +22,13 @@
                     <label>Year</label><select ng-model="date.year" ng-options="n for n in date.years"></select>
                     <input type="submit" value="Get Feedback" ng-click=getFeedback()>
                     <div id="feedback" style="visibility: hidden" ng-model='visitFeedback'>
-                        <h4>{{avg}} star rating for the month!</h4>
+                        <h4>Average rating for the month: {{avg}}/5!</h4>
                         <ul>
                             <li ng-repeat="x in fb">
                                 <h4>{{x.name}} from {{x.company}} says:</h4>
                                 <p>{{x.enhancement}}</p> 
-                                <h4>Gave {{x.location}} a {{x.star}} star rating!</h4>
+                                <h4 ng-if="x.star!==0">Gave {{x.location}} a {{x.star}} star rating!</h4>
+                                <h4 ng-if="x.star===0">Did not give a star rating</h4>
                             </li>
                         </ul>
                     </div>
